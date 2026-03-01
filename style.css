@@ -1,27 +1,375 @@
-
-h2
-{
-    color:red;
-    font-size:30px;
- }
-
-p:hover{background: green;}
- .standout
- {
-    color:coral;
- }
-
-.image1:hover{
-    border-radius:50%;
- }
-.image2:hover{
-    border-radius:20px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
 }
-.image3:hover{
-    opacity:0.8;
+
+:root {
+    --primary: #0F2B5B;
+    --secondary: #FF9F45;
+    --light: #F8F9FA;
+    --dark: #333333;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --radius: 10px;
 }
-.image4:hover{
-    filter:grayscale(0.5)
+
+body {
+    color: var(--dark);
+    line-height: 1.6;
+    background-color: var(--light);
 }
-.image5:hover{
-    filter:blur(10px)}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 60px;
+    position: relative;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #e88c32;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 43, 91, 0.95);
+    color: white;
+    z-index: 999;
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo i {
+    color: var(--secondary);
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.banner {
+    height: 100vh;
+    background: url("https://picsum.photos/1920/1080?random=0") no-repeat center center/cover;
+    position: relative;
+    margin-top: 70px;
+}
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+.banner-overlay h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+.banner-overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.itinerary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.card {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+.card-1 .card-header {background-color: var(--primary);}
+.card-2 .card-header {background-color: #E63946;}
+.card-3 .card-header {background-color: #457B9D;}
+.card-4 .card-header {background-color: #2A9D8F;}
+.card-header {
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.card-body {
+    padding: 25px 20px;
+    font-size: 1rem;
+}
+.card-body p {
+    margin-bottom: 10px;
+}
+
+.scenic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+.scenic-item {
+    text-align: center;
+}
+.scenic-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
+}
+.scenic-item img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+.scenic-item h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.food-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.food-category {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--secondary);
+}
+.food-tea {border-left-color: var(--primary);}
+.food-street {border-left-color: #FF9F45;}
+.food-seafood {border-left-color: #2A9D8F;}
+.food-category h3 {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.food-category h3::before {
+    content: "🍜";
+    font-size: 1.6rem;
+}
+.food-category ul {
+    list-style: none;
+    font-size: 1.1rem;
+}
+.food-category li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+.food-category li::before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.tips-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.tips-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary);
+    color: white;
+}
+.tips-item:hover i, .tips-item:hover h3 {
+    color: var(--secondary);
+}
+.tips-item i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+.tips-item h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.video-box {
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+iframe {
+    border: none;
+}
+
+.footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+.footer p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+.footer p i {
+    color: var(--secondary);
+    margin-right: 8px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    z-index: 998;
+}
+.back-to-top:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner-overlay h2 {
+        font-size: 2.2rem;
+    }
+    .banner-overlay p {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .banner {
+        margin-top: 120px;
+    }
+    .section {
+        padding: 60px 0;
+    }
+    .video-box iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-overlay h2 {
+        font-size: 1.8rem;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tips-grid, .scenic-grid, .itinerary-cards, .food-categories {
+        grid-template-columns: 1fr;
+    }
+    .video-box iframe {
+        height: 200px;
+    }
+}
